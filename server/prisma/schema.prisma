@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(uuid()) @map("_id")
+  email        String      @unique
+  name         String?
+  account_type AccountType @default(DISCORD)
+  role         Role        @default(NORMAL)
+  password     String?
+  avatar       String?
+  created_at   DateTime    @default(now())
+
+  @@map("users")
+}
+
+enum AccountType {
+  DISCORD
+  INTERNAL
+}
+
+enum Role {
+  ADMIN
+  NORMAL
+}
+
+model Ped {
+  id            String   @id @default(uuid()) @map("_id")
+  type          String   @unique
+  price         Float
+  monthly_price Float?
+  description   String?
+  cover         String?
+  images        String[] @default([])
+  created_at    DateTime @default(now())
+
+  @@map("peds")
+}
+
+model House {
+  id            String   @id @default(uuid()) @map("_id")
+  type          String   @unique
+  price         Float
+  monthly_price Float?
+  description   String?
+  cover         String?
+  images        String[] @default([])
+  created_at    DateTime @default(now())
+
+  @@map("houses")
+}
+
+model Upgrade {
+  id            String   @id @default(uuid()) @map("_id")
+  type          String   @unique
+  price         Float
+  monthly_price Float?
+  capacity      Int
+  description   String?
+  cover         String?
+  images        String[] @default([])
+  created_at    DateTime @default(now())
+
+  @@map("upgrades")
+}
+
+model Extra {
+  id            String   @id @default(uuid()) @map("_id")
+  type          String   @unique
+  price         Float
+  monthly_price Float?
+  description   String?
+  cover         String?
+  images        String[] @default([])
+  created_at    DateTime @default(now())
+
+  @@map("extras")
+}
+
+model Farm {
+  id            String   @id @default(uuid()) @map("_id")
+  type          String   @unique
+  price         Float
+  monthly_price Float?
+  description   String?
+  cover         String?
+  images        String[] @default([])
+  created_at    DateTime @default(now())
+
+  @@map("farms")
+}
+
+model Vip {
+  id                 String   @id @default(uuid()) @map("_id")
+  type               String   @unique
+  price              Float
+  monthly_price      Float?
+  additional_bonuses Json?
+  description        String?
+  cover              String?
+  images             String[] @default([])
+  created_at         DateTime @default(now())
+
+  @@map("vips")
+}
