@@ -23,7 +23,7 @@ const start = async () => {
     setRoutes(app);
 
     await app.ready();
-    await app.listen({ port: env.PORT || 10000 });
+    await app.listen({ host: '0.0.0.0', port: env.PORT || 10000 });
 
     console.log(`\nServer is running at ${env.BACKEND_URL} ✅\n`);
   } catch (err) {
