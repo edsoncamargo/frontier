@@ -1,5 +1,8 @@
+import 'colors';
+
 import Fastify from 'fastify';
 import { env } from './env';
+import scheduleCronJobs from './services/jobs.service';
 import { setFastifyCookie } from './lib/fastify-cookie';
 import { setFastifyCors } from './lib/fastify-cors';
 import { setFastifyErrorHandler } from './lib/fastify-error-handler';
@@ -25,9 +28,13 @@ const start = async () => {
     await app.ready();
     await app.listen({ host: '0.0.0.0', port: env.PORT || 10000 });
 
-    console.log(`\nServer is running at ${env.BACKEND_URL} ✅\n`);
+    console.log(
+      `\n>> [INFO] Server está rodando em: ${env.BACKEND_URL} ✅\n`.blue
+    );
+
+    scheduleCronJobs();
   } catch (err) {
-    app.log.error(err);
+    console.log(`\n>> [ERROR]: ${err}`.red);
     process.exit(1);
   }
 };
