@@ -20,7 +20,10 @@ const envSchema = validate.object({
   BACKEND_URL: validate.string().url(),
   FRONTEND_URL: validate.string().url(),
 
+  ENV: validate.string().default('dev'),
   PORT: validate.coerce.number().default(3000),
+
+  DOMAIN: validate.string().default('locahost'),
 });
 
 export const env = envSchema.parse(process.env);

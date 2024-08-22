@@ -119,11 +119,15 @@ async function handleLogin(
     created_at: loggedUser!.created_at,
   });
 
+  const isProduction = env.ENV === 'production';
+
   reply.setCookie('AUTH-FRONTIER', token, {
     httpOnly: true,
     path: '/',
     maxAge: env.COOKIE_MAX_AGE,
-    sameSite: 'Strict',
+    sameSite: 'Lax',
+    secure: isProduction,
+    domain: env.DOMAIN,
   });
 
   reply.redirect(`${env.FRONTEND_URL}/?token=${token}`);
