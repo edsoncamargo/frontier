@@ -135,7 +135,10 @@ function App() {
         <section>
           <p className='text-2xl text-paragraph-50 w-full'>
             Trabalho em progresso,
-            <span className='font-bold'> novidades em breve ⚠️</span>
+            <span className='font-bold whitespace-nowra'>
+              {' '}
+              novidades em breve ⚠️
+            </span>
           </p>
         </section>
       </article>
