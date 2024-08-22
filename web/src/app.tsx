@@ -1,6 +1,12 @@
 import { FaDiscord, FaInstagram, FaTiktok } from 'react-icons/fa';
 
+import { env } from './env';
+
 function App() {
+  console.log(
+    `\n>> [INFO] Server está rodando em: ${env.VITE_BACKEND_URL} ✅\n`
+  );
+
   return (
     <main className='flex flex-col'>
       <em className='bg-noises bg-center bg-cover bg-repeat w-full h-[100vh] fixed z-[9999] pointer-events-none'></em>
@@ -14,13 +20,13 @@ function App() {
             <em className='bg-logo w-[75px] h-[68px] bg-no-repeat bg-center bg-contain flex absolute min-[1124px]:left-1/2 max-[1124px]:left-20 top-1/2 -translate-y-1/2 -translate-x-1/2'></em>
 
             <div className='flex gap-4 bg-red min-[521px]:items-center mr-10 flex-wrap justify-end py-10 max-[520px]:flex-col'>
-              <button className='min-[520px]:mr-8 text-primary-50 font-regular flex items-center gap-1'>
+              <button className='min-[520px]:mr-8 text-primary-950 font-regular flex items-center gap-1 hover:text-primary-900 transition-all'>
                 Entre no nosso <FaDiscord />
               </button>
-              <button className='px-4 py-3 bg-transparent border-white border-[0.5px] text-paragraph-50 rounded-md font-bold'>
+              <button className='px-4 py-3 bg-transparent border-white border-[0.5px] text-paragraph-50 rounded-md font-bold hover:bg-zinc-600/50 transition-all'>
                 Fazer login
               </button>
-              <button className='px-4 py-3 bg-primary-50 text-paragraph-50 rounded-md font-bold'>
+              <button className='px-4 py-3 bg-primary-950 text-paragraph-50 rounded-md font-bold hover:bg-primary-900 transition-all'>
                 Criar uma conta
               </button>
             </div>
@@ -35,7 +41,7 @@ function App() {
             </p>
 
             <div className='flex flex-col gap-3'>
-              <button className='px-4 py-3 bg-primary-50 text-paragraph-50 rounded-md font-bold tracking-widest'>
+              <button className='px-4 py-3 bg-primary-950 text-paragraph-50 rounded-md font-bold tracking-widest hover:bg-primary-900 transition-all'>
                 CONECTAR
               </button>
 
@@ -63,7 +69,7 @@ function App() {
           <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-center flex-wrap max-[781px]:justify-start'>
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 SOBRE O SERVIDOR
@@ -72,7 +78,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 REGRAS
@@ -81,7 +87,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 VIPS
@@ -90,7 +96,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 FARMS
@@ -99,7 +105,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 HOUSES
@@ -108,7 +114,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 UPGRADES
@@ -117,7 +123,7 @@ function App() {
 
             <li>
               <a
-                className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
+                className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
                 href='https://'
               >
                 EXTRAS
