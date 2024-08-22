@@ -13,8 +13,8 @@ function App() {
             <em className='bg-gradient-to-b from-black/60 h-full w-full absolute -z-10 top-0'></em>
             <em className='bg-logo w-[75px] h-[68px] bg-no-repeat bg-center bg-contain flex absolute min-[1124px]:left-1/2 max-[1124px]:left-20 top-1/2 -translate-y-1/2 -translate-x-1/2'></em>
 
-            <div className='flex gap-4 bg-red items-center mr-10 flex-wrap justify-end py-10'>
-              <button className='mr-8 text-primary-50 font-regular flex items-center gap-1'>
+            <div className='flex gap-4 bg-red min-[521px]:items-center mr-10 flex-wrap justify-end py-10 max-[520px]:flex-col'>
+              <button className='min-[520px]:mr-8 text-primary-50 font-regular flex items-center gap-1'>
                 Entre no nosso <FaDiscord />
               </button>
               <button className='px-4 py-3 bg-transparent border-white border-[0.5px] text-paragraph-50 rounded-md font-bold'>
@@ -27,7 +27,7 @@ function App() {
           </div>
 
           <div className='flex-1 flex-col justify-center items-center w-full h-full flex min-h-[100vh] -mt-[148px] gap-16 px-10'>
-            <p className='text-paragraph-50 font-bold text-3xl text-center tracking-widest mt-60 font-faroest'>
+            <p className='text-paragraph-50 font-bold min-[761px]:text-3xl text-center tracking-widest mt-60 font-faroest max-[761px]:text-1xl'>
               SEJA UM HERÓI OU UM <br /> FORA-DA-LEI EM{' '}
               <span className="after:text-stroke-primary-50 after:text-stroke-xs after:content-['FRONTIER'] after:ml-0.5 after:text-transparent relative after:absolute after:-left-2 after:-top-0.5">
                 FRONTIER.
@@ -60,7 +60,7 @@ function App() {
 
       <article className='mt-10 max-w-7xl m-auto flex flex-col p-10'>
         <nav>
-          <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-center flex-wrap'>
+          <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-center flex-wrap max-[781px]:justify-start'>
             <li>
               <a
                 className='hover:text-primary-50 transition-all after:content-[""] after:w-0 after:bg-primary-50 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
