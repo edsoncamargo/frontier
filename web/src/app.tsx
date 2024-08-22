@@ -64,9 +64,9 @@ function App() {
         <em className='bg-gradient-to-b from-black h-20 w-full absolute -bottom-20'></em>
       </article>
 
-      <article className='mt-10 max-w-7xl m-auto flex flex-col p-10'>
+      <article className='mt-10 max-w-7xl m-auto flex flex-col p-10 w-full gap-20'>
         <nav>
-          <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-center flex-wrap max-[781px]:justify-start'>
+          <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-between flex-wrap max-[781px]:justify-start'>
             <li>
               <a
                 className='hover:text-primary-950 transition-all after:content-[""] after:w-0 after:bg-primary-950 after:h-[0.5px] after:block hover:after:w-1/2 after:transition-all after:rounded-r-lg'
@@ -131,6 +131,13 @@ function App() {
             </li>
           </ul>
         </nav>
+
+        <section>
+          <p className='text-2xl text-paragraph-50 w-full'>
+            Trabalho em progresso,
+            <span className='font-bold'> novidades em breve ⚠️</span>
+          </p>
+        </section>
       </article>
     </main>
   );
