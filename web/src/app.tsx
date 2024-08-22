@@ -17,9 +17,9 @@ function App() {
         <section className='relative z-10'>
           <div className='flex justify-end items-center min-[684px]:h-[148px] relative pl-48'>
             <em className='bg-gradient-to-b from-black/60 h-full w-full absolute -z-10 top-0'></em>
-            <em className='bg-logo w-[75px] h-[68px] bg-no-repeat bg-center bg-contain flex absolute min-[1124px]:left-1/2 max-[1124px]:left-20 top-1/2 -translate-y-1/2 -translate-x-1/2'></em>
+            <em className='bg-logo w-[75px] h-[68px] bg-no-repeat bg-center bg-contain flex absolute min-[1124px]:left-1/2 max-[1124px]:left-10 max-[768px]:left-6 top-1/2 -translate-y-1/2 min-[1124px]:-translate-x-1/2'></em>
 
-            <div className='flex gap-4 bg-red min-[521px]:items-center mr-10 flex-wrap justify-end py-10 max-[520px]:flex-col'>
+            <div className='flex gap-4 bg-red min-[521px]:items-center min-[768px]:mr-10 max-[768px]:mr-6 flex-wrap justify-end py-10 max-[520px]:flex-col'>
               <button className='min-[520px]:mr-8 text-primary-950 font-regular flex items-center gap-1 hover:text-primary-900 transition-all'>
                 Entre no nosso <FaDiscord />
               </button>
@@ -32,10 +32,10 @@ function App() {
             </div>
           </div>
 
-          <div className='flex-1 flex-col justify-center items-center w-full h-full flex min-h-[100vh] -mt-[148px] gap-16 px-10'>
+          <div className='flex-1 flex-col justify-center items-center w-full h-full flex min-h-[100vh] -mt-[148px] gap-16 min-[768px]:px-10 max-[768px]:px-6'>
             <p className='text-paragraph-50 font-bold min-[761px]:text-3xl text-center tracking-widest mt-60 font-faroest max-[761px]:text-1xl'>
               SEJA UM HERÓI OU UM <br /> FORA-DA-LEI EM{' '}
-              <span className="after:text-stroke-primary-50 after:text-stroke-xs after:content-['FRONTIER'] after:ml-0.5 after:text-transparent relative after:absolute after:-left-2 after:-top-0.5">
+              <span className="after:text-stroke-primary-950 after:text-stroke-xs after:content-['FRONTIER'] after:ml-0.5 after:text-transparent relative after:absolute after:-left-2 after:-top-0.5">
                 FRONTIER.
               </span>
             </p>
@@ -64,7 +64,7 @@ function App() {
         <em className='bg-gradient-to-b from-black h-20 w-full absolute -bottom-20'></em>
       </article>
 
-      <article className='mt-10 max-w-7xl m-auto flex flex-col p-10 w-full gap-20'>
+      <article className='mt-10 max-w-7xl m-auto flex flex-col p-10 w-full gap-20 min-[768px]:px-10 max-[768px]:px-6'>
         <nav>
           <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-between flex-wrap max-[781px]:justify-start'>
             <li>
