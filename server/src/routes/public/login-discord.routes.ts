@@ -61,7 +61,19 @@ async function fetchUserData(accessToken: string) {
     },
   });
 
-  if (!response.ok) {
+  const frontierId = '1229503686749716671';
+
+  const responseGuilds = await fetch(
+    'https://discord.com/api/v10/users/@me/guilds',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+
+  if (!response.ok || !responseGuilds.ok) {
     throw new ClientError(
       `Erro ao obter informações do usuário: ${response.statusText} ⚠️`,
       401
@@ -69,6 +81,15 @@ async function fetchUserData(accessToken: string) {
   }
 
   const userData = await response.json();
+  const guilds = await responseGuilds.json();
+  let isUserInGuild = true;
+
+  if (
+    guilds.length > 0 &&
+    !guilds.find((guild: { id: string }) => guild.id === frontierId)
+  ) {
+    isUserInGuild = false;
+  }
 
   const avatarUrl = userData.avatar
     ? `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`
@@ -78,29 +99,21 @@ async function fetchUserData(accessToken: string) {
     email: userData.email,
     username: userData.username,
     avatar: avatarUrl,
+    isUserInGuild: isUserInGuild,
   };
 }
 
 async function handleLogin(
-  userData: { email: any; username: any; avatar: string },
+  userData: {
+    email: any;
+    username: any;
+    avatar: string;
+    isUserInGuild: boolean;
+  },
   reply: any
 ) {
-  const alreadyExistUserByEmail = await prisma.user.findUnique({
-    where: {
-      email: userData.email,
-    },
-  });
-
-  if (!alreadyExistUserByEmail) {
-    await prisma.user.create({
-      data: {
-        email: userData.email,
-        name: userData.username,
-        account_type: AccountType.DISCORD,
-        avatar: userData.avatar,
-      },
-    });
-  }
+  await registerUserIfNotExists(userData);
+  await updateExistingUser(userData);
 
   const loggedUser = await prisma.user.findUnique({
     where: {
@@ -116,6 +129,7 @@ async function handleLogin(
     role: loggedUser!.role,
     password: null,
     avatar: loggedUser!.avatar,
+    is_user_in_guild: loggedUser!.is_user_in_guild,
     created_at: loggedUser!.created_at,
   });
 
@@ -131,4 +145,48 @@ async function handleLogin(
   });
 
   reply.redirect(`${env.FRONTEND_URL}/?token=${token}`);
+}
+async function updateExistingUser(userData: {
+  email: any;
+  username: any;
+  avatar: string;
+  isUserInGuild: boolean;
+}) {
+  await prisma.user.update({
+    where: {
+      email: userData.email,
+    },
+    data: {
+      email: userData.email,
+      name: userData.username,
+      account_type: AccountType.DISCORD,
+      avatar: userData.avatar,
+      is_user_in_guild: userData.isUserInGuild,
+    },
+  });
+}
+
+async function registerUserIfNotExists(userData: {
+  email: any;
+  username: any;
+  avatar: string;
+  isUserInGuild: boolean;
+}) {
+  const alreadyExistUserByEmail = await prisma.user.findUnique({
+    where: {
+      email: userData.email,
+    },
+  });
+
+  if (!alreadyExistUserByEmail) {
+    await prisma.user.create({
+      data: {
+        email: userData.email,
+        name: userData.username,
+        account_type: AccountType.DISCORD,
+        avatar: userData.avatar,
+        is_user_in_guild: userData.isUserInGuild,
+      },
+    });
+  }
 }

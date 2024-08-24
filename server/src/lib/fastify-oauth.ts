@@ -14,7 +14,7 @@ export function setOAuth(app: FastifyInstance) {
     },
     startRedirectPath: '/api/v1/public/login/discord',
     callbackUri: `${env.BACKEND_URL}/api/v1/public/login/discord/callback`,
-    scope: ['identify', 'email', 'guilds.join'],
+    scope: ['identify', 'email', 'guilds'],
     generateStateFunction: () => true,
     checkStateFunction: () => true,
   };

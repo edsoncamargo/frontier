@@ -12,7 +12,7 @@ import { setRoutes } from './routes/routes';
 import { setSwagger } from './lib/swagger';
 import { setValidatorCompiler } from './lib/zod';
 
-const app = Fastify({ logger: true });
+const app = Fastify();
 
 const start = async () => {
   try {
