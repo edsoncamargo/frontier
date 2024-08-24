@@ -48,6 +48,7 @@ export async function loginNormalRoute(app: FastifyInstance) {
         password: null,
         avatar: null,
         created_at: new Date(),
+        is_user_in_guild: user.is_user_in_guild,
       });
 
       reply.setCookie('AUTH-FRONTIER', token, {
