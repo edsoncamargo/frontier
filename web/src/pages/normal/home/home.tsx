@@ -17,7 +17,7 @@ export function Home() {
           <div className='flex-1 flex-col justify-center items-center w-full h-full flex min-h-[100vh] -mt-[148px] gap-16 min-[768px]:px-10 max-[768px]:px-6'>
             <p className='text-paragraph-50 font-bold min-[761px]:text-3xl text-center tracking-widest mt-60 font-faroest max-[761px]:text-1xl'>
               SEJA UM HERÓI OU UM <br /> FORA-DA-LEI EM{' '}
-              <span className="after:text-stroke-primary-950 after:text-stroke-xs after:content-['FRONTIER'] after:ml-0.5 after:text-transparent relative after:absolute after:-left-2 after:-top-0.5">
+              <span className="after:text-stroke-primary-850 after:-z-10 after:opacity-50 after:text-stroke-xs after:content-['FRONTIER'] after:text-transparent relative after:absolute after:left-1 after:top-1">
                 FRONTIER.
               </span>
             </p>
