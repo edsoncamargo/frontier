@@ -12,44 +12,46 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
-            <a
-              href='#home'
-              className='flex gap-2 items-center text-paragraph-50'
-            >
-              IR PARA O TOPO{' '}
-              <span className='text-[8px] p-1 rounded-full border-paragraph-50 border-2'>
-                <FaArrowCircleUp />
-              </span>
-            </a>
-          </div>
+          <div className='flex flex-wrap gap-4 justify-between w-[66%] max-[962px]:w-[100%]'>
+            <div>
+              <a
+                href='#home'
+                className='flex gap-2 items-center text-paragraph-50'
+              >
+                IR PARA O TOPO{' '}
+                <span className='text-[8px] p-1 rounded-full border-paragraph-50 border-2'>
+                  <FaArrowCircleUp />
+                </span>
+              </a>
+            </div>
 
-          <div className='gap-2 flex flex-col flex-wrap'>
-            <a href='#about' className='text-paragraph-50 text-nowrap'>
-              SOBRE
-            </a>
+            <div className='gap-2 flex flex-col flex-wrap'>
+              <a href='#about' className='text-paragraph-50 text-nowrap'>
+                SOBRE
+              </a>
 
-            <a href='#vips' className='text-paragraph-50 text-nowrap'>
-              VIPS
-            </a>
+              <a href='#vips' className='text-paragraph-50 text-nowrap'>
+                VIPS
+              </a>
 
-            <a href='#farms' className='text-paragraph-50 text-nowrap'>
-              FARMS
-            </a>
-          </div>
+              <a href='#farms' className='text-paragraph-50 text-nowrap'>
+                FARMS
+              </a>
+            </div>
 
-          <div className='gap-2 flex flex-col flex-wrap'>
-            <a href='#houses' className='text-paragraph-50 text-nowrap'>
-              HOUSES
-            </a>
+            <div className='gap-2 flex flex-col flex-wrap'>
+              <a href='#houses' className='text-paragraph-50 text-nowrap'>
+                HOUSES
+              </a>
 
-            <a href='#upgrades' className='text-paragraph-50 text-nowrap'>
-              UPGRADES
-            </a>
+              <a href='#upgrades' className='text-paragraph-50 text-nowrap'>
+                UPGRADES
+              </a>
 
-            <a href='#extras' className='text-paragraph-50 text-nowrap'>
-              EXTRAS
-            </a>
+              <a href='#extras' className='text-paragraph-50 text-nowrap'>
+                EXTRAS
+              </a>
+            </div>
           </div>
         </div>
 
@@ -58,14 +60,14 @@ export function Footer() {
         <div className='flex flex-col items-center gap-4'>
           <div className='flex justify-center items-center gap-2'>
             <a
-              href=''
+              href='https://'
               className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2'
             >
               <FaInstagram />
             </a>
 
             <a
-              href=''
+              href='https://'
               className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2'
             >
               <FaTiktok />

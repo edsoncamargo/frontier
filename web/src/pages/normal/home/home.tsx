@@ -12,7 +12,7 @@ export function Home() {
         <em className='w-full min-h-[100vh] bg-black/60 absolute'></em>
 
         <section className='relative z-10'>
-          <Header />
+          {/* <Header /> */}
 
           <div className='flex-1 flex-col justify-center items-center w-full h-full flex min-h-[100vh] -mt-[148px] gap-16 min-[768px]:px-10 max-[768px]:px-6'>
             <p className='text-paragraph-50 font-bold min-[761px]:text-3xl text-center tracking-widest mt-60 font-faroest max-[761px]:text-1xl'>
