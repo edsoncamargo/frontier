@@ -16,39 +16,57 @@ export function Footer() {
             <div>
               <a
                 href='#home'
-                className='flex gap-2 items-center text-paragraph-50'
+                className='flex gap-2 items-center text-paragraph-50 group hover:text-zinc-950/50'
               >
                 IR PARA O TOPO{' '}
-                <span className='text-[8px] p-1 rounded-full border-paragraph-50 border-2'>
+                <span className='text-[8px] p-1 rounded-full border-paragraph-50 border-2 group-hover:border-zinc-950/50'>
                   <FaArrowCircleUp />
                 </span>
               </a>
             </div>
 
             <div className='gap-2 flex flex-col flex-wrap'>
-              <a href='#about' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#about'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 SOBRE
               </a>
 
-              <a href='#vips' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#vips'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 VIPS
               </a>
 
-              <a href='#farms' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#farms'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 FARMS
               </a>
             </div>
 
             <div className='gap-2 flex flex-col flex-wrap'>
-              <a href='#houses' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#houses'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 HOUSES
               </a>
 
-              <a href='#upgrades' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#upgrades'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 UPGRADES
               </a>
 
-              <a href='#extras' className='text-paragraph-50 text-nowrap'>
+              <a
+                href='#extras'
+                className='text-paragraph-50 text-nowrap hover:text-zinc-950/50'
+              >
                 EXTRAS
               </a>
             </div>
@@ -61,14 +79,14 @@ export function Footer() {
           <div className='flex justify-center items-center gap-2'>
             <a
               href='https://'
-              className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2'
+              className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2 hover:text-zinc-950/50 hover:border-zinc-950/50'
             >
               <FaInstagram />
             </a>
 
             <a
               href='https://'
-              className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2'
+              className='text-1xl text-paragraph-50 p-2 rounded-full border-paragraph-50 border-2 hover:text-zinc-950/50 hover:border-zinc-950/50'
             >
               <FaTiktok />
             </a>
