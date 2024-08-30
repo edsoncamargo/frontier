@@ -1,7 +1,5 @@
 import { FaArrowCircleUp, FaInstagram, FaTiktok } from 'react-icons/fa';
 
-import { BiArrowToTop } from 'react-icons/bi';
-
 export function Footer() {
   return (
     <footer className='bg-primary-1000 py-16 mt-32 bg-icons bg-center bg-cover bg-repeat'>
