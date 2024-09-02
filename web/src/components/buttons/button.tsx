@@ -2,7 +2,7 @@ import { ComponentProps, ReactNode } from 'react';
 import { VariantProps, tv } from 'tailwind-variants';
 
 const button = tv({
-  base: 'px-4 py-3 rounded-md transition-all',
+  base: 'px-4 py-3 rounded-md disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-primary-950 transition-all',
   variants: {
     variant: {
       primary:
