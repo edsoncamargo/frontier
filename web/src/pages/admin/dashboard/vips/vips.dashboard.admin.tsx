@@ -1,7 +1,7 @@
 import { FaPen, FaSliders, FaTrash } from 'react-icons/fa6';
 
 import { Button } from '../../../../components/buttons/button';
-import { Modal } from '../../../../components/modal/modal';
+import Modal from '../../../../components/modal/modal';
 import { Navbar } from '../../../../components/navbar/navbar';
 import { useState } from 'react';
 
@@ -86,11 +86,23 @@ export function VipsDashboard() {
         </div>
       </section>
 
-      <Modal
-        isOpen={isOpenModal}
-        setIsOpen={setIsOpenModal}
-        onClose={handleModalToggle}
-      />
+      <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}>
+        <Modal.Header title='Editar VIP de PRATA'>
+          <Modal.X onClose={handleModalToggle} />
+        </Modal.Header>
+
+        <Modal.Footer>
+          <Button
+            variant='secondary'
+            size='sm'
+            onClick={() => handleModalToggle()}
+          >
+            CANCELAR
+          </Button>
+
+          <Button size='sm'>SALVAR</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

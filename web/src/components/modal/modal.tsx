@@ -1,38 +1,85 @@
 import { FaX } from 'react-icons/fa6';
+import { ReactNode } from 'react';
 
 type ModalProps = {
+  children: ReactNode;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
-  onClose: () => void;
 };
 
-export function Modal({
-  isOpen = false,
-  setIsOpen,
-  onClose,
-}: Readonly<ModalProps>) {
+function Modal({ children, isOpen = false, setIsOpen }: Readonly<ModalProps>) {
   return (
     <>
       {isOpen && (
         <>
-          <div className='bg-multiple bg-repeat bg-cover w-[728px] max-h-[728px] bg-background-950 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-hidden z-50 border-2 border-background-850'>
-            <div className='flex justify-between gap-4 p-4'>
-              <h3 className='uppercase'>Editar VIP de PRATA</h3>
-
-              <button onClick={() => onClose()}>
-                <FaX />
-              </button>
-            </div>
-            <div className='p-4'></div>
-            <div className='p-4 w-full bg-background-900'></div>
+          <div className='bg-icons bg-repeat bg-cover w-[728px] max-h-[728px] bg-background-950 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-hidden z-50 border-2 border-background-850'>
+            {children}
           </div>
 
-          <button
-            className='w-[100vw] h-[100vh] bg-background-950/80 z-40 top-0 left-0 fixed'
-            onClick={() => setIsOpen(false)}
-          ></button>
+          <Overlay setIsOpen={setIsOpen} />
         </>
       )}
     </>
   );
 }
+
+type HeaderProps = {
+  title: string;
+  children?: ReactNode;
+};
+
+function Header({ title, children }: Readonly<HeaderProps>) {
+  return (
+    <div className='flex justify-between items-center gap-4 p-4'>
+      <h3>{title}</h3>
+
+      {children}
+    </div>
+  );
+}
+
+type XProps = {
+  onClose: () => void;
+};
+
+function X({ onClose }: Readonly<XProps>) {
+  return (
+    <button
+      onClick={() => onClose()}
+      className='rounded-full bg-zinc-900 border-2 border-zinc-800 hover:border-paragraph-50 p-2 transition-all'
+    >
+      <FaX className='text-xs' />
+    </button>
+  );
+}
+
+type FooterProps = {
+  children: ReactNode;
+};
+
+function Footer({ children }: Readonly<FooterProps>) {
+  return (
+    <div className='flex flex-wrap justify-end gap-4 p-4 w-full bg-background-900'>
+      {children}
+    </div>
+  );
+}
+
+type OverlayProps = {
+  setIsOpen: (isOpen: boolean) => void;
+};
+
+function Overlay({ setIsOpen }: Readonly<OverlayProps>) {
+  return (
+    <button
+      className='w-[100vw] h-[100vh] bg-background-950/80 z-40 top-0 left-0 fixed'
+      onClick={() => setIsOpen(false)}
+    ></button>
+  );
+}
+
+Modal.Header = Header;
+Modal.Footer = Footer;
+Modal.X = X;
+
+export default Modal;
