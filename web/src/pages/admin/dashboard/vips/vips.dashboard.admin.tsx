@@ -39,6 +39,7 @@ export function VipsDashboard() {
                 <th className='text-start px-3'>Imagens</th>
                 <th className='text-start px-3 sticky right-0'>
                   <FaSliders />
+                  <em className='bg-zinc-950/80 h-12 absolute left-0 w-full -z-10 top-0'></em>
                 </th>
               </tr>
             </thead>
