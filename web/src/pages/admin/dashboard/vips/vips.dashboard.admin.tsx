@@ -86,7 +86,11 @@ export function VipsDashboard() {
         </div>
       </section>
 
-      <Modal isOpen={isOpenModal} onClose={handleModalToggle} />
+      <Modal
+        isOpen={isOpenModal}
+        setIsOpen={setIsOpenModal}
+        onClose={handleModalToggle}
+      />
     </>
   );
 }

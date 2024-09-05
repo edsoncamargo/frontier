@@ -2,10 +2,15 @@ import { FaX } from 'react-icons/fa6';
 
 type ModalProps = {
   isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
   onClose: () => void;
 };
 
-export function Modal({ isOpen = false, onClose }: Readonly<ModalProps>) {
+export function Modal({
+  isOpen = false,
+  setIsOpen,
+  onClose,
+}: Readonly<ModalProps>) {
   return (
     <>
       {isOpen && (
@@ -22,7 +27,10 @@ export function Modal({ isOpen = false, onClose }: Readonly<ModalProps>) {
             <div className='p-4 w-full bg-background-900'></div>
           </div>
 
-          <div className='w-[100vw] h-[100vh] bg-background-950/80 z-40 top-0 left-0 fixed'></div>
+          <button
+            className='w-[100vw] h-[100vh] bg-background-950/80 z-40 top-0 left-0 fixed'
+            onClick={() => setIsOpen(false)}
+          ></button>
         </>
       )}
     </>
