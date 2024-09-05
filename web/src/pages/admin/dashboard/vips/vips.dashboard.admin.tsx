@@ -134,7 +134,9 @@ export function VipsDashboard() {
         <Navbar />
 
         <div className='flex'>
-          <Button size='sm'>ADICIONAR</Button>
+          <Button size='sm' onClick={() => handleModalToggle()}>
+            ADICIONAR
+          </Button>
         </div>
 
         <Table>

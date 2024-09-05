@@ -19,7 +19,7 @@ export function Sidebar() {
           </li>
 
           <li className='h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 border-zinc-800 rounded-md hover:border-paragraph-50 transition-all'>
-            <Link to=''>
+            <Link to='/admin/dashboard/vips'>
               <FaStar />
             </Link>
           </li>

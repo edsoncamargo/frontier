@@ -38,7 +38,7 @@ export function Login() {
         ) => {
           console.log(JSON.stringify(fields, null, 2));
 
-          navigate('/admin/dashboard/main');
+          navigate('/admin/dashboard/vips');
 
           setSubmitting(false);
           resetForm();

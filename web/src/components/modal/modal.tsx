@@ -12,7 +12,7 @@ function Modal({ children, isOpen = false, setIsOpen }: Readonly<ModalProps>) {
     <>
       {isOpen && (
         <>
-          <div className='bg-icons bg-repeat bg-cover w-[728px] max-h-[728px] bg-background-950 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-hidden z-50 border-2 border-background-850'>
+          <div className='bg-icons bg-repeat bg-cover min-[840px]:w-[768px] max-[840px]:w-[calc(100%-48px)]  max-h-[768px]  bg-background-950 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md overflow-hidden z-50 border-2 border-background-850'>
             {children}
           </div>
 
