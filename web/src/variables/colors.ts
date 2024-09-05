@@ -7,6 +7,8 @@ const colors = {
   },
   background: {
     950: '#040404',
+    900: '#070707',
+    850: '#131313',
   },
   paragraph: {
     50: '#FFFFFF',

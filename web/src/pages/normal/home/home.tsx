@@ -24,7 +24,9 @@ export function Home() {
 
             <div className='flex flex-col gap-3'>
               <Button variant='primary'>
-                <span className='tracking-widest'>CONECTAR</span>
+                <span className='tracking-widest text-center w-full'>
+                  CONECTAR
+                </span>
               </Button>
 
               <Button variant='secondary'>

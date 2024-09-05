@@ -10,7 +10,7 @@ const ProtectRoute: React.FC<ProtectRouteProps> = ({
   element: Component,
   ...rest
 }) => {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return isAuthenticated ? (
     <Component {...rest} />

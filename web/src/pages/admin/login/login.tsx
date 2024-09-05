@@ -4,6 +4,7 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import { Button } from '../../../components/buttons/button';
 import Input from '../../../components/forms/input/input';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
+import { useNavigate } from 'react-router-dom';
 import { z as validate } from 'zod';
 
 interface Fields {
@@ -19,6 +20,8 @@ const Schema = validate.object({
 });
 
 export function Login() {
+  const navigate = useNavigate();
+
   return (
     <div className='max-h-[100vh] h-[calc(100vh-3rem)] flex items-center justify-center w-full flex-col gap-16'>
       <em className='bg-logo w-[75px] h-[68px] bg-no-repeat bg-center bg-contain flex'></em>
@@ -34,6 +37,9 @@ export function Login() {
           { setSubmitting, resetForm }: FormikHelpers<Fields>
         ) => {
           console.log(JSON.stringify(fields, null, 2));
+
+          navigate('/admin/dashboard/main');
+
           setSubmitting(false);
           resetForm();
         }}
