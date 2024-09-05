@@ -1,13 +1,32 @@
+import { ReactNode, useEffect } from 'react';
+
 import { FaX } from 'react-icons/fa6';
-import { ReactNode } from 'react';
 
 type ModalProps = {
   children: ReactNode;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  onClose?: () => void;
 };
 
-function Modal({ children, isOpen = false, setIsOpen }: Readonly<ModalProps>) {
+function Modal({
+  children,
+  isOpen = false,
+  setIsOpen,
+  onClose,
+}: Readonly<ModalProps>) {
+  useEffect(() => {
+    function handleCloseOnKeyEsc(event: KeyboardEvent) {
+      if (event.key === 'Escape' && isOpen) onClose?.();
+    }
+
+    if (isOpen) document.addEventListener('keydown', handleCloseOnKeyEsc);
+
+    return () => {
+      document.removeEventListener('keydown', handleCloseOnKeyEsc);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <>
       {isOpen && (
