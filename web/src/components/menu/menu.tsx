@@ -64,7 +64,10 @@ function Menu({ children }: Readonly<MenuProps>) {
 
   return (
     <HashContext.Provider value={memoizedHash}>
-      <nav ref={navRef} className='sticky left-0 top-4 p-4'>
+      <nav
+        ref={navRef}
+        className='min-[592px]:sticky max-[591px]:relative left-0 top-4 p-4'
+      >
         <ul className='flex gap-6 font-faroest text-1xl text-paragraph-50 justify-between flex-wrap max-[781px]:justify-start'>
           {children}
         </ul>

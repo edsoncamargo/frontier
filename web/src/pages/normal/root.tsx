@@ -15,7 +15,7 @@ export function Root() {
 
       <article className='mt-10 max-w-7xl m-auto flex flex-col p-10 w-full gap-20 min-[768px]:px-10 max-[768px]:px-6'>
         <Menu>
-          <Menu.Item title='SOBRE O SERVIDOR' link='#about' />
+          <Menu.Item title='SOBRE' link='#about' />
           <Menu.Item title='VIPS' link='#vips' />
           <Menu.Item title='FARMS' link='#farms' />
           <Menu.Item title='HOUSES' link='#houses' />
