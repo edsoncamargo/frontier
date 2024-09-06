@@ -23,27 +23,27 @@ export function Root() {
           <Menu.Item title='EXTRAS' link='#extras' />
         </Menu>
 
-        <section id='about'>
+        <section id='about' className='scroll-mt-20'>
           <About />
         </section>
 
-        <section id='vips'>
+        <section id='vips' className='scroll-mt-20'>
           <VipsNormal />
         </section>
 
-        <section id='farms'>
+        <section id='farms' className='scroll-mt-20'>
           <FarmsNormal />
         </section>
 
-        <section id='houses'>
+        <section id='houses' className='scroll-mt-20'>
           <HousesNormal />
         </section>
 
-        <section id='upgrades'>
+        <section id='upgrades' className='scroll-mt-20'>
           <UpgradesNormal />
         </section>
 
-        <section id='extras'>
+        <section id='extras' className='scroll-mt-20'>
           <ExtrasNormal />
         </section>
       </article>
