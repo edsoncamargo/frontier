@@ -20,6 +20,8 @@ function Menu({ children }: Readonly<MenuProps>) {
   const [hash, setHash] = useState<string>('');
 
   useEffect(() => {
+    updateCurrentHashByPosition();
+
     function handleScroll() {
       updateCurrentHashByPosition();
     }
@@ -56,7 +58,7 @@ function Menu({ children }: Readonly<MenuProps>) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [navRef]);
+  }, [navRef, hash]);
 
   const memoizedHash = useMemo(() => ({ hash }), [hash]);
 
