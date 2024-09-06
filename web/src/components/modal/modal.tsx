@@ -72,6 +72,14 @@ function X({ onClose }: Readonly<XProps>) {
   );
 }
 
+type BodyProps = {
+  children: ReactNode;
+};
+
+function Body({ children }: Readonly<BodyProps>) {
+  return <div className='p-4'>{children}</div>;
+}
+
 type FooterProps = {
   children: ReactNode;
 };
@@ -98,6 +106,7 @@ function Overlay({ setIsOpen }: Readonly<OverlayProps>) {
 }
 
 Modal.Header = Header;
+Modal.Body = Body;
 Modal.Footer = Footer;
 Modal.X = X;
 

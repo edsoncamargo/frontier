@@ -1,10 +1,10 @@
 import { FaPen, FaSliders, FaTrash } from 'react-icons/fa6';
-import { useEffect, useState } from 'react';
 
 import { Button } from '../../../../components/buttons/button';
 import Modal from '../../../../components/modal/modal';
 import { Navbar } from '../../../../components/navbar/navbar';
 import Table from '../../../../components/table/table';
+import { useState } from 'react';
 
 type DataType = {
   id: number;
@@ -209,6 +209,10 @@ export function VipsDashboard() {
         <Modal.Header title={`Editar VIP ${currentSelectedItem?.type}`}>
           <Modal.X onClose={handleModalToggle} />
         </Modal.Header>
+
+        <Modal.Body>
+          <div>Entrei ⭐</div>
+        </Modal.Body>
 
         <Modal.Footer>
           <Button
