@@ -14,8 +14,8 @@ export function Sidebar() {
   function setActiveClassIfCurrentPage(path: string) {
     const classActive =
       location.pathname === path
-        ? 'border-primary-950 hover:border-primary-950'
-        : '';
+        ? 'text-primary-950 border-primary-950 hover:border-primary-950'
+        : 'border-zinc-800';
     return classActive;
   }
 
@@ -29,7 +29,7 @@ export function Sidebar() {
 
           <li
             className={`h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all
+              rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/vips')}`}
           >
             <Link to='/admin/dashboard/vips'>
@@ -39,7 +39,7 @@ export function Sidebar() {
 
           <li
             className={`h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all
+              rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/farms')}`}
           >
             <Link to=''>
@@ -49,7 +49,7 @@ export function Sidebar() {
 
           <li
             className={`h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all
+              rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/houses')}`}
           >
             <Link to=''>
@@ -59,7 +59,7 @@ export function Sidebar() {
 
           <li
             className={`h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all
+              rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/upgrades')}`}
           >
             <Link to=''>
@@ -69,7 +69,7 @@ export function Sidebar() {
 
           <li
             className={`h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all
+              rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/extras')}`}
           >
             <Link to=''>
@@ -81,7 +81,7 @@ export function Sidebar() {
         <ul>
           <li
             className='h-8 w-8 flex justify-center items-center bg-zinc-900 border-2 
-              border-zinc-800 rounded-md hover:border-paragraph-50 transition-all'
+              rounded-md hover:border-paragraph-50 transition-all'
           >
             <Link to='/'>
               <FaGlobe />
