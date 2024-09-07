@@ -50,7 +50,7 @@ type HeaderProps = {
 function Header({ title, children }: Readonly<HeaderProps>) {
   return (
     <div className='flex justify-between items-center gap-4 p-4'>
-      <h3>{title}</h3>
+      <h3 className='text-2xl'>{title.toUpperCase()}</h3>
 
       {children}
     </div>

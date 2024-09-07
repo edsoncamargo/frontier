@@ -24,6 +24,7 @@ type PanelType = {
 export function PanelDashboard({ structure }: Readonly<PanelType>) {
   const { category } = useParams();
   const panel = JSON.parse(structure);
+  console.log(panel);
   console.log(category);
 
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
@@ -146,7 +147,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
     if (modalType === 'add') {
       return (
         <>
-          <Modal.Header title={`Editar vip ${currentSelectedItem?.type}`}>
+          <Modal.Header title='ADICIONAR NOVO'>
             <Modal.X onClose={handleModalToggle} />
           </Modal.Header>
 
@@ -163,14 +164,18 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
               CANCELAR
             </Button>
 
-            <Button size='sm'>SALVAR</Button>
+            <Button size='sm'>ADICIONAR</Button>
           </Modal.Footer>
         </>
       );
     } else if (modalType === 'edit') {
       return (
         <>
-          <Modal.Header title={`Editar vip ${currentSelectedItem?.type}`}>
+          <Modal.Header
+            title={`Editar ${panel.panelTitle.slice(0, -1)} ${
+              currentSelectedItem?.type
+            }`}
+          >
             <Modal.X onClose={handleModalToggle} />
           </Modal.Header>
 
@@ -208,13 +213,17 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
                 <FaX />
               </em>
 
-              <h3 className='text-3xl text-center'>
-                Deletar o vip <strong>{currentSelectedItem?.type}</strong>
+              <h3 className='text-3xl text-center uppercase'>
+                Deletar {panel.panelTitle.slice(0, -1)}{' '}
+                <strong>{currentSelectedItem?.type}</strong>
               </h3>
 
               <p className='text-center tracking-wider'>
-                Você vai deletar o vip{' '}
-                <strong>{currentSelectedItem?.type}</strong>
+                Você vai deletar o(a){' '}
+                {panel.panelTitle.slice(0, -1).toUpperCase()}{' '}
+                <strong className='uppercase'>
+                  {currentSelectedItem?.type}
+                </strong>
                 <br></br>
                 Tem certeza?
               </p>
