@@ -10,6 +10,7 @@ const button = tv({
       secondary:
         'bg-transparent border-white border-[0.5px] text-paragraph-50 rounded-md font-bold hover:bg-zinc-600/50',
       text: 'text-primary-950 font-regular hover:text-primary-900',
+      delete: 'bg-red-900 border-2 border-red-500 hover:border-red-400',
     },
     size: {
       sm: 'h-8 text-xs',

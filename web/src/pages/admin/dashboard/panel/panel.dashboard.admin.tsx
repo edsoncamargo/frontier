@@ -1,9 +1,10 @@
-import { FaPen, FaSliders, FaTrash } from 'react-icons/fa6';
+import { FaPen, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
 
 import { Button } from '../../../../components/buttons/button';
 import Modal from '../../../../components/modal/modal';
-import { Navbar } from '../../../../components/navbar/navbar';
+import { Navbar } from './navbar/navbar';
 import Table from '../../../../components/table/table';
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
 type DataType = {
@@ -16,11 +17,20 @@ type DataType = {
   images: string;
 };
 
-export function VipsDashboard() {
+type PanelType = {
+  structure: string;
+};
+
+export function PanelDashboard({ structure }: Readonly<PanelType>) {
+  const { category } = useParams();
+  const panel = JSON.parse(structure);
+  console.log(category);
+
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [currentSelectedItem, setCurrentSelectedItem] = useState<
     DataType | undefined
   >(undefined);
+  const [modalType, setModalType] = useState<'add' | 'edit' | 'delete'>();
 
   function handleModalToggle(data?: DataType) {
     setCurrentSelectedItem(data ? data : undefined);
@@ -132,13 +142,116 @@ export function VipsDashboard() {
     },
   ];
 
+  function getModalContent() {
+    if (modalType === 'add') {
+      return (
+        <>
+          <Modal.Header title={`Editar vip ${currentSelectedItem?.type}`}>
+            <Modal.X onClose={handleModalToggle} />
+          </Modal.Header>
+
+          <Modal.Body>
+            <div></div>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant='secondary'
+              size='sm'
+              onClick={() => handleModalToggle()}
+            >
+              CANCELAR
+            </Button>
+
+            <Button size='sm'>SALVAR</Button>
+          </Modal.Footer>
+        </>
+      );
+    } else if (modalType === 'edit') {
+      return (
+        <>
+          <Modal.Header title={`Editar vip ${currentSelectedItem?.type}`}>
+            <Modal.X onClose={handleModalToggle} />
+          </Modal.Header>
+
+          <Modal.Body>
+            <div>Editar ⭐</div>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant='secondary'
+              size='sm'
+              onClick={() => handleModalToggle()}
+            >
+              CANCELAR
+            </Button>
+
+            <Button size='sm'>SALVAR</Button>
+          </Modal.Footer>
+        </>
+      );
+    } else if (modalType === 'delete') {
+      return (
+        <>
+          <Modal.Header title=''>
+            <Modal.X onClose={handleModalToggle} />
+          </Modal.Header>
+
+          <Modal.Body>
+            <div className='w-full flex flex-col gap-6 justify-center items-center'>
+              <em
+                className='rounded-full bg-red-900 border-2 border-red-500 p-4 
+                relative before:absolute before:content-[""] before:bg-red-500/30 before:left-1/2 before:top-1/2
+                before:h-20 before:w-20 before:rounded-full before:-translate-x-1/2 before:-translate-y-1/2 before:-z-10'
+              >
+                <FaX />
+              </em>
+
+              <h3 className='text-3xl text-center'>
+                Deletar o vip <strong>{currentSelectedItem?.type}</strong>
+              </h3>
+
+              <p className='text-center tracking-wider'>
+                Você vai deletar o vip{' '}
+                <strong>{currentSelectedItem?.type}</strong>
+                <br></br>
+                Tem certeza?
+              </p>
+            </div>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant='secondary'
+              size='sm'
+              onClick={() => handleModalToggle()}
+            >
+              NÃO, MANTENHA ASSIM
+            </Button>
+
+            <Button variant='delete' size='sm'>
+              SIM, DELETAR
+            </Button>
+          </Modal.Footer>
+        </>
+      );
+    }
+  }
+
   return (
     <>
       <section className='flex flex-col gap-6'>
-        <Navbar />
+        <Navbar title={panel.panelTitle} />
 
         <div className='flex'>
-          <Button size='sm' onClick={() => handleModalToggle()}>
+          <Button
+            size='sm'
+            onClick={() => {
+              handleModalToggle();
+              setModalType('add');
+            }}
+          >
             ADICIONAR
           </Button>
         </div>
@@ -176,13 +289,19 @@ export function VipsDashboard() {
                     <div className='flex gap-2 items-center'>
                       <button
                         className='rounded-full bg-slate-900 border-2 border-slate-500 hover:border-slate-400 p-2 transition-all'
-                        onClick={() => handleModalToggle(item)}
+                        onClick={() => {
+                          handleModalToggle(item);
+                          setModalType('edit');
+                        }}
                       >
                         <FaPen />
                       </button>
                       <button
                         className='rounded-full bg-red-900 border-2 border-red-500 hover:border-red-400 p-2 transition-all'
-                        onClick={() => handleModalToggle(item)}
+                        onClick={() => {
+                          handleModalToggle(item);
+                          setModalType('delete');
+                        }}
                       >
                         <FaTrash />
                       </button>
@@ -206,25 +325,7 @@ export function VipsDashboard() {
         setIsOpen={setIsOpenModal}
         onClose={handleModalClose}
       >
-        <Modal.Header title={`Editar VIP ${currentSelectedItem?.type}`}>
-          <Modal.X onClose={handleModalToggle} />
-        </Modal.Header>
-
-        <Modal.Body>
-          <div>Entrei ⭐</div>
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button
-            variant='secondary'
-            size='sm'
-            onClick={() => handleModalToggle()}
-          >
-            CANCELAR
-          </Button>
-
-          <Button size='sm'>SALVAR</Button>
-        </Modal.Footer>
+        {getModalContent()}
       </Modal>
     </>
   );

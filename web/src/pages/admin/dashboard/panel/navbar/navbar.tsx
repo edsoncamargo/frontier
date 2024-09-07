@@ -1,10 +1,14 @@
-export function Navbar() {
+type NavbarType = {
+  title: string;
+};
+
+export function Navbar({ title }: Readonly<NavbarType>) {
   return (
     <nav className='flex flex-col w-full justify-between items-center gap-10'>
       <div className='flex w-full justify-between items-center'>
         <div className='flex flex-col'>
           <h1 className='uppercase text-2xl font-extrabold'>
-            Gerenciamento de VIPS
+            Gerenciamento de {title?.toUpperCase()}
           </h1>
 
           <p className='text-xs text-zinc-400'>

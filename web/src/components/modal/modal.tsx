@@ -86,7 +86,7 @@ type FooterProps = {
 
 function Footer({ children }: Readonly<FooterProps>) {
   return (
-    <div className='flex flex-wrap justify-end gap-4 p-4 w-full bg-background-900'>
+    <div className='flex flex-wrap justify-end gap-4 p-4 mt-8 w-full bg-background-900'>
       {children}
     </div>
   );

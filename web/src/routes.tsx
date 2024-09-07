@@ -6,7 +6,6 @@ import ProtectRoute from './pages/admin/protect-route.admin';
 import Root from './pages/normal/root';
 import RootAdmin from './pages/admin/root.admin';
 import { RootDashboard } from './pages/admin/dashboard/root.dashboard.admin';
-import { VipsDashboard } from './pages/admin/dashboard/vips/vips.dashboard.admin';
 
 export function Routing() {
   return (
@@ -22,7 +21,7 @@ export function Routing() {
             element={<ProtectRoute element={RootDashboard} />}
           >
             <Route index element={<Navigate to='vips' />} />
-            <Route path='vips' element={<VipsDashboard />} />
+            <Route path=':category' element={<RootDashboard />} />
           </Route>
         </Route>
 

@@ -42,7 +42,7 @@ export function Sidebar() {
               rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/farms')}`}
           >
-            <Link to=''>
+            <Link to='/admin/dashboard/farms'>
               <FaWheatAwn />
             </Link>
           </li>
@@ -52,7 +52,7 @@ export function Sidebar() {
               rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/houses')}`}
           >
-            <Link to=''>
+            <Link to='/admin/dashboard/houses'>
               <FaHouse />
             </Link>
           </li>
@@ -62,7 +62,7 @@ export function Sidebar() {
               rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/upgrades')}`}
           >
-            <Link to=''>
+            <Link to='/admin/dashboard/upgrades'>
               <FaArrowUpFromGroundWater />
             </Link>
           </li>
@@ -72,7 +72,7 @@ export function Sidebar() {
               rounded-md hover:border-paragraph-50 transition-all
               ${setActiveClassIfCurrentPage('/admin/dashboard/extras')}`}
           >
-            <Link to=''>
+            <Link to='/admin/dashboard/extras'>
               <FaPlus />
             </Link>
           </li>

@@ -16,14 +16,16 @@ export function ErrorPage() {
           <p className='text-justify'>
             Você se perdeu no{' '}
             <span className='text-nowrap'>Velho Oeste ⚠️</span> <br></br>
-            Parece que você cavalgou para o lado errado. <br></br> Tente voltar
-            para o acampamento{' '}
-            <Button variant='text'>
-              <Link to='/' className='flex items-center gap-2'>
-                principal <IoReturnDownBack />
-              </Link>
-            </Button>
-            .<br></br> Esta página não foi encontrada.
+            Parece que você cavalgou para o lado errado. <br></br>
+            <div className='flex items-center'>
+              Tente voltar para o acampamento{' '}
+              <Button variant='text'>
+                <Link to='/' className='flex items-center gap-2'>
+                  principal <IoReturnDownBack />.
+                </Link>
+              </Button>
+            </div>
+            Esta página não foi encontrada.
           </p>
         </div>
       </div>
