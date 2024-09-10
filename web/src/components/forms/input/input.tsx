@@ -8,7 +8,7 @@ type InputProps = {
 
 function Input({ children }: Readonly<InputProps>) {
   return (
-    <div className='relative bg-zinc-700/40 py-2 px-4 rounded-md flex gap-2 items-center text-primary-950 border-2 border-zinc-700/60 focus-within:border-primary-850 transition-all'>
+    <div className='relative w-full bg-zinc-700/40 py-2 px-4 rounded-md flex gap-2 items-center text-primary-950 border-2 border-zinc-700/60 focus-within:border-primary-850 transition-all'>
       {children}
     </div>
   );
@@ -20,7 +20,7 @@ function Text({ ...rest }: Readonly<FieldType>) {
   return (
     <Field
       {...rest}
-      className='bg-transparent focus:outline-none placeholder:text-primary-850/40'
+      className='bg-transparent w-full focus:outline-none placeholder:text-primary-850/40'
     />
   );
 }

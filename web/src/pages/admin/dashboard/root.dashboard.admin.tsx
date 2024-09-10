@@ -39,9 +39,31 @@ export function RootDashboard() {
       default:
         return JSON.stringify({
           panelTitle: 'Vips',
-          forms: {
-            type: 'string',
-          },
+          forms: [
+            {
+              type: {
+                field: 'string',
+              },
+            },
+            {
+              price: {
+                field: 'number',
+              },
+              monthly_price: {
+                field: 'number',
+              },
+            },
+            {
+              description: {
+                field: 'string',
+              },
+            },
+            {
+              images: {
+                field: 'string[]',
+              },
+            },
+          ],
         });
     }
   }

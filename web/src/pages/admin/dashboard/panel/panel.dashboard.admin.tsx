@@ -1,6 +1,16 @@
-import { FaPen, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
+import {
+  FaAt,
+  FaMoneyBillTrendUp,
+  FaPen,
+  FaSackDollar,
+  FaSliders,
+  FaTrash,
+  FaX,
+} from 'react-icons/fa6';
+import { Form, Formik, FormikHelpers } from 'formik';
 
 import { Button } from '../../../../components/buttons/button';
+import Input from '../../../../components/forms/input/input';
 import Modal from '../../../../components/modal/modal';
 import { Navbar } from './navbar/navbar';
 import Table from '../../../../components/table/table';
@@ -20,6 +30,11 @@ type DataType = {
 type PanelType = {
   structure: string;
 };
+
+interface Fields {
+  email: string;
+  password: string;
+}
 
 export function PanelDashboard({ structure }: Readonly<PanelType>) {
   const { category } = useParams();
@@ -151,21 +166,75 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
             <Modal.X onClose={handleModalToggle} />
           </Modal.Header>
 
-          <Modal.Body>
-            <div></div>
-          </Modal.Body>
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            onSubmit={(
+              fields: Fields,
+              { setSubmitting, resetForm }: FormikHelpers<Fields>
+            ) => {
+              console.log(JSON.stringify(fields, null, 2));
 
-          <Modal.Footer>
-            <Button
-              variant='secondary'
-              size='sm'
-              onClick={() => handleModalToggle()}
-            >
-              CANCELAR
-            </Button>
+              setSubmitting(false);
+              resetForm();
+            }}
+          >
+            {() => (
+              <Form className='flex flex-col gap-6'>
+                <Modal.Body>
+                  <div className='flex flex-col gap-4'>
+                    <Input>
+                      <FaAt />
+                      <Input.Field
+                        id='name'
+                        name='name'
+                        placeholder='Nome'
+                        autoComplete='off'
+                      />
+                    </Input>
 
-            <Button size='sm'>ADICIONAR</Button>
-          </Modal.Footer>
+                    <div className='flex gap-4'>
+                      <Input>
+                        <FaSackDollar />
+                        <Input.Field
+                          id='price'
+                          name='price'
+                          placeholder='Preço'
+                          autoComplete='off'
+                        />
+                      </Input>
+
+                      <Input>
+                        <FaMoneyBillTrendUp />
+                        <Input.Field
+                          id='month'
+                          name='month'
+                          placeholder='Mensal'
+                          autoComplete='off'
+                        />
+                      </Input>
+                    </div>
+                  </div>
+                </Modal.Body>
+
+                <Modal.Footer>
+                  <Button
+                    variant='secondary'
+                    size='sm'
+                    onClick={() => handleModalToggle()}
+                  >
+                    CANCELAR
+                  </Button>
+
+                  <Button type='submit' size='sm'>
+                    ADICIONAR
+                  </Button>
+                </Modal.Footer>
+              </Form>
+            )}
+          </Formik>
         </>
       );
     } else if (modalType === 'edit') {
