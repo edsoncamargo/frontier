@@ -121,7 +121,35 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
     setIsOpenModal(false);
   }
 
-  const data = [
+  const data: DataType[] = [
+    {
+      id: 1,
+      type: 'Bronze',
+      price: 100.0,
+      monthly_price: 25.0,
+      description:
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+
+      cover: [
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+      ],
+      images:
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+    },
+    {
+      id: 1,
+      type: 'Bronze',
+      price: 100.0,
+      monthly_price: 25.0,
+      description:
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+
+      cover: [
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+      ],
+      images:
+        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
+    },
     {
       id: 1,
       type: 'Bronze',
@@ -281,68 +309,74 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
           </Button>
         </div>
 
-        <Table>
-          <Table.Header>
-            <Table.Row variant='header'>
-              <Table.HeaderCell>Nome</Table.HeaderCell>
-              <Table.HeaderCell>Preço</Table.HeaderCell>
-              <Table.HeaderCell>Mensal</Table.HeaderCell>
-              <Table.HeaderCell>Descrição</Table.HeaderCell>
-              <Table.HeaderCell>Capa</Table.HeaderCell>
-              <Table.HeaderCell>Imagens</Table.HeaderCell>
-              <Table.HeaderCell variant='freeze'>
-                <FaSliders />
-                <em className='bg-zinc-950/80 h-12 absolute left-0 w-full -z-10 top-0'></em>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
+        {data && data.length > 0 ? (
+          <Table>
+            <Table.Header>
+              <Table.Row variant='header'>
+                <Table.HeaderCell>Nome</Table.HeaderCell>
+                <Table.HeaderCell>Preço</Table.HeaderCell>
+                <Table.HeaderCell>Mensal</Table.HeaderCell>
+                <Table.HeaderCell>Descrição</Table.HeaderCell>
+                <Table.HeaderCell>Capa</Table.HeaderCell>
+                <Table.HeaderCell>Imagens</Table.HeaderCell>
+                <Table.HeaderCell variant='freeze'>
+                  <FaSliders />
+                  <em className='bg-zinc-950/80 h-12 absolute left-0 w-full -z-10 top-0'></em>
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
 
-          <Table.Body>
-            {data.map((item, index) => {
-              return (
-                <Table.Row
-                  key={item.type}
-                  variant={index % 2 === 0 ? 'even' : 'odd'}
-                >
-                  <Table.Cell>{item.type}</Table.Cell>
-                  <Table.Cell>{item.price}</Table.Cell>
-                  <Table.Cell>{item.monthly_price}</Table.Cell>
-                  <Table.Cell>{item.description}</Table.Cell>
-                  <Table.Cell>{item.cover}</Table.Cell>
-                  <Table.Cell>{JSON.stringify(item.images)}</Table.Cell>
-                  <Table.Cell variant='freeze'>
-                    <div className='flex gap-2 items-center'>
-                      <button
-                        className='rounded-full bg-slate-900 border-2 border-slate-500 hover:border-slate-400 p-2 transition-all'
-                        onClick={() => {
-                          handleModalToggle(item);
-                          setModalType('edit');
-                        }}
-                      >
-                        <FaPen />
-                      </button>
-                      <button
-                        className='rounded-full bg-red-900 border-2 border-red-500 hover:border-red-400 p-2 transition-all'
-                        onClick={() => {
-                          handleModalToggle(item);
-                          setModalType('delete');
-                        }}
-                      >
-                        <FaTrash />
-                      </button>
+            <Table.Body>
+              {data.map((item, index) => {
+                return (
+                  <Table.Row
+                    key={item.type}
+                    variant={index % 2 === 0 ? 'even' : 'odd'}
+                  >
+                    <Table.Cell>{item.type}</Table.Cell>
+                    <Table.Cell>{item.price}</Table.Cell>
+                    <Table.Cell>{item.monthly_price}</Table.Cell>
+                    <Table.Cell>{item.description}</Table.Cell>
+                    <Table.Cell>{item.cover}</Table.Cell>
+                    <Table.Cell>{JSON.stringify(item.images)}</Table.Cell>
+                    <Table.Cell variant='freeze'>
+                      <div className='flex gap-2 items-center justify-end'>
+                        <button
+                          className='rounded-full bg-slate-900 border-2 border-slate-500 hover:border-slate-400 p-2 transition-all'
+                          onClick={() => {
+                            handleModalToggle(item);
+                            setModalType('edit');
+                          }}
+                        >
+                          <FaPen />
+                        </button>
+                        <button
+                          className='rounded-full bg-red-900 border-2 border-red-500 hover:border-red-400 p-2 transition-all'
+                          onClick={() => {
+                            handleModalToggle(item);
+                            setModalType('delete');
+                          }}
+                        >
+                          <FaTrash />
+                        </button>
 
-                      <em
-                        className={`${
-                          index % 2 === 0 ? 'bg-zinc-950/80' : 'bg-zinc-900/80'
-                        } h-12 absolute left-0 w-full -z-10`}
-                      ></em>
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-              );
-            })}
-          </Table.Body>
-        </Table>
+                        <em
+                          className={`${
+                            index % 2 === 0
+                              ? 'bg-zinc-950/80'
+                              : 'bg-zinc-900/80'
+                          } h-full absolute left-0 w-full -z-10`}
+                        ></em>
+                      </div>
+                    </Table.Cell>
+                  </Table.Row>
+                );
+              })}
+            </Table.Body>
+          </Table>
+        ) : (
+          <p>Nenhum item encontrado ⚠️</p>
+        )}
       </section>
 
       <Modal

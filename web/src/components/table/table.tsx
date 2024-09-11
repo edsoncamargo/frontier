@@ -22,7 +22,7 @@ function Header({ children }: Readonly<HeaderProps>) {
 }
 
 const row = tv({
-  base: 'h-12',
+  base: 'h-full',
   variants: {
     variant: {
       header: 'font-extrabold bg-zinc-950/80 border-b-2 border-paragraph-50/50',
@@ -45,11 +45,11 @@ function Row({ children, variant }: Readonly<RowProps>) {
 }
 
 const headerCell = tv({
-  base: 'text-start px-3 max-w-56 truncate overflow-hidden whitespace-nowrap',
+  base: 'text-start p-4 max-w-56 truncate overflow-hidden whitespace-nowrap',
   variants: {
     variant: {
       normal: '',
-      freeze: 'sticky right-0',
+      freeze: 'sticky right-0 flex justify-end',
     },
   },
   defaultVariants: {
@@ -75,7 +75,7 @@ function Body({ children }: Readonly<BodyProps>) {
 }
 
 const cell = tv({
-  base: 'px-3 max-w-56 truncate overflow-hidden whitespace-nowrap',
+  base: 'p-4 max-h-3 max-w-56 truncate overflow-hidden whitespace-nowrap',
   variants: {
     variant: {
       normal: '',
