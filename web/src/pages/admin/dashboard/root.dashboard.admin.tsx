@@ -1,5 +1,6 @@
 import {
   FaImage,
+  FaImages,
   FaQuoteLeft,
   FaSackDollar,
   FaSignature,
@@ -18,35 +19,6 @@ export function RootDashboard() {
       case 'farms':
         return {
           panelTitle: 'Farms',
-          forms: {
-            type: 'string',
-          },
-        };
-      case 'houses':
-        return {
-          panelTitle: 'Houses',
-          forms: {
-            type: 'string',
-          },
-        };
-      case 'upgrades':
-        return {
-          panelTitle: 'Upgrades',
-          forms: {
-            type: 'string',
-          },
-        };
-      case 'extras':
-        return {
-          panelTitle: 'Extras',
-          forms: {
-            type: 'string',
-          },
-        };
-
-      default:
-        return {
-          panelTitle: 'Vips',
           forms: [
             {
               type: {
@@ -84,6 +56,187 @@ export function RootDashboard() {
             {
               images: {
                 field: 'image',
+                icon: <FaImages />,
+              },
+            },
+          ],
+        };
+      case 'houses':
+        return {
+          panelTitle: 'Houses',
+          forms: [
+            {
+              type: {
+                field: 'string',
+                placeholder: 'Digite o nome',
+                icon: <FaSignature />,
+              },
+            },
+            {
+              price: {
+                field: 'number',
+                placeholder: 'Digite o preço',
+                icon: <FaSackDollar />,
+              },
+              monthly_price: {
+                field: 'number',
+                placeholder: 'Digite o preço mensal',
+                icon: <FaVault />,
+              },
+            },
+            {
+              description: {
+                field: 'string',
+                placeholder: 'Digite a descrição',
+                icon: <FaQuoteLeft />,
+              },
+            },
+            {
+              cover: {
+                field: 'string',
+                placeholder: 'Digite a url da capa',
+                icon: <FaImage />,
+              },
+            },
+            {
+              images: {
+                field: 'image',
+                icon: <FaImages />,
+              },
+            },
+          ],
+        };
+      case 'upgrades':
+        return {
+          panelTitle: 'Upgrades',
+          forms: [
+            {
+              type: {
+                field: 'string',
+                placeholder: 'Digite o nome',
+                icon: <FaSignature />,
+              },
+            },
+            {
+              price: {
+                field: 'number',
+                placeholder: 'Digite o preço',
+                icon: <FaSackDollar />,
+              },
+              monthly_price: {
+                field: 'number',
+                placeholder: 'Digite o preço mensal',
+                icon: <FaVault />,
+              },
+            },
+            {
+              description: {
+                field: 'string',
+                placeholder: 'Digite a descrição',
+                icon: <FaQuoteLeft />,
+              },
+            },
+            {
+              cover: {
+                field: 'string',
+                placeholder: 'Digite a url da capa',
+                icon: <FaImage />,
+              },
+            },
+            {
+              images: {
+                field: 'image',
+                icon: <FaImages />,
+              },
+            },
+          ],
+        };
+      case 'extras':
+        return {
+          panelTitle: 'Extras',
+          forms: [
+            {
+              type: {
+                field: 'string',
+                placeholder: 'Digite o nome',
+                icon: <FaSignature />,
+              },
+            },
+            {
+              price: {
+                field: 'number',
+                placeholder: 'Digite o preço',
+                icon: <FaSackDollar />,
+              },
+              monthly_price: {
+                field: 'number',
+                placeholder: 'Digite o preço mensal',
+                icon: <FaVault />,
+              },
+            },
+            {
+              description: {
+                field: 'string',
+                placeholder: 'Digite a descrição',
+                icon: <FaQuoteLeft />,
+              },
+            },
+            {
+              cover: {
+                field: 'string',
+                placeholder: 'Digite a url da capa',
+                icon: <FaImage />,
+              },
+            },
+            {
+              images: {
+                field: 'image',
+                icon: <FaImages />,
+              },
+            },
+          ],
+        };
+
+      default:
+        return {
+          panelTitle: 'Vips',
+          forms: [
+            {
+              type: {
+                field: 'string',
+                placeholder: 'Digite o nome',
+                icon: <FaSignature />,
+              },
+            },
+            {
+              price: {
+                field: 'number',
+                placeholder: 'Digite o preço',
+                icon: <FaSackDollar />,
+              },
+              monthly_price: {
+                field: 'number',
+                placeholder: 'Digite o preço mensal',
+                icon: <FaVault />,
+              },
+            },
+            {
+              description: {
+                field: 'string',
+                placeholder: 'Digite a descrição',
+                icon: <FaQuoteLeft />,
+              },
+            },
+            {
+              cover: {
+                field: 'url',
+                placeholder: 'Digite a url da capa',
+                icon: <FaImage />,
+              },
+              images: {
+                field: 'image',
+                placeholder: 'Digite uma url de cada vez (grid)',
+                icon: <FaImages />,
               },
             },
           ],

@@ -14,6 +14,7 @@ const button = tv({
     },
     size: {
       sm: 'h-8 text-xs',
+      send: 'w-10',
     },
   },
   defaultVariants: {

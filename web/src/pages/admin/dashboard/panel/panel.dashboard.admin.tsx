@@ -1,4 +1,4 @@
-import { FaPen, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
+import { FaPen, FaPlus, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
 import { Form, Formik, FormikHelpers } from 'formik';
 
 import { Button } from '../../../../components/buttons/button';
@@ -21,8 +21,8 @@ type DataType = {
 
 export interface InputField {
   field: string;
-  placeholder: string;
-  icon: React.ReactNode;
+  placeholder?: string;
+  icon?: React.ReactNode;
 }
 
 export interface FormInputs {
@@ -60,7 +60,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
       const inputsName = Object.keys(inputs);
 
       return (
-        <div key={inputsName.toString()} className='flex gap-4'>
+        <div key={inputsName.toString()} className='flex gap-3'>
           {inputsName.map((field) => {
             const inputType = inputs[field].field;
             const inputIcon = inputs[field].icon;
@@ -80,10 +80,21 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
               );
             } else {
               return (
-                <div key={field}>
-                  <span className='text-paragraph-50'>
-                    Criando o input de imagem ⚠️
-                  </span>
+                <div className='flex gap-1 w-full' key={field}>
+                  <Input>
+                    {inputIcon}
+                    <Input.Field
+                      id={field}
+                      name={field}
+                      type='url'
+                      placeholder={inputs[field].placeholder}
+                      autoComplete='off'
+                    />
+                  </Input>
+
+                  <Button type='button' size='send'>
+                    <FaPlus />
+                  </Button>
                 </div>
               );
             }
@@ -125,90 +136,6 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
       images:
         'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
     },
-    {
-      id: 1,
-      type: 'Prata',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
-    {
-      id: 1,
-      type: 'Ouro',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
-    {
-      id: 1,
-      type: 'Platina',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
-    {
-      id: 1,
-      type: 'Diamante',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
-    {
-      id: 1,
-      type: 'Esmeralda',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
-    {
-      id: 1,
-      type: 'Frontier',
-      price: 100.0,
-      monthly_price: 25.0,
-      description:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-
-      cover: [
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-      ],
-      images:
-        'http://res.cloudinary.com/dbwpfdu30/image/upload/v1723649165/frontier/vips/vgegtq8jkxbwiqwwum0y.jpg',
-    },
   ];
 
   function getModalContent() {
@@ -234,7 +161,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
             {() => (
               <Form className='flex flex-col gap-6'>
                 <Modal.Body>
-                  <div className='flex flex-col gap-4'>
+                  <div className='flex flex-col gap-3'>
                     {generateDynamicForm()}
                   </div>
                 </Modal.Body>
