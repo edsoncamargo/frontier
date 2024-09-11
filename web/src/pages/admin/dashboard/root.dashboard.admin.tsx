@@ -1,70 +1,93 @@
-import { PanelDashboard } from './panel/panel.dashboard.admin';
+import {
+  FaImage,
+  FaQuoteLeft,
+  FaSackDollar,
+  FaSignature,
+  FaVault,
+} from 'react-icons/fa6';
+import { PanelDashboard, PanelType } from './panel/panel.dashboard.admin';
+
 import { Sidebar } from './panel/sidebar/sidebar';
 import { useParams } from 'react-router-dom';
 
 export function RootDashboard() {
   const { category } = useParams();
 
-  function generatePanelStructure() {
+  function generatePanelStructure(): PanelType['structure'] {
     switch (category) {
       case 'farms':
-        return JSON.stringify({
+        return {
           panelTitle: 'Farms',
           forms: {
             type: 'string',
           },
-        });
+        };
       case 'houses':
-        return JSON.stringify({
+        return {
           panelTitle: 'Houses',
           forms: {
             type: 'string',
           },
-        });
+        };
       case 'upgrades':
-        return JSON.stringify({
+        return {
           panelTitle: 'Upgrades',
           forms: {
             type: 'string',
           },
-        });
+        };
       case 'extras':
-        return JSON.stringify({
+        return {
           panelTitle: 'Extras',
           forms: {
             type: 'string',
           },
-        });
+        };
 
       default:
-        return JSON.stringify({
+        return {
           panelTitle: 'Vips',
           forms: [
             {
               type: {
                 field: 'string',
+                placeholder: 'Digite o nome',
+                icon: <FaSignature />,
               },
             },
             {
               price: {
                 field: 'number',
+                placeholder: 'Digite o preço',
+                icon: <FaSackDollar />,
               },
               monthly_price: {
                 field: 'number',
+                placeholder: 'Digite o preço mensal',
+                icon: <FaVault />,
               },
             },
             {
               description: {
                 field: 'string',
+                placeholder: 'Digite a descrição',
+                icon: <FaQuoteLeft />,
+              },
+            },
+            {
+              cover: {
+                field: 'string',
+                placeholder: 'Digite a url da capa',
+                icon: <FaImage />,
               },
             },
             {
               images: {
-                field: 'string[]',
+                field: 'image',
               },
             },
           ],
-        });
+        };
     }
   }
 

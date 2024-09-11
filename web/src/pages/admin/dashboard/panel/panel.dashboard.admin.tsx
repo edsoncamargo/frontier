@@ -1,12 +1,4 @@
-import {
-  FaAt,
-  FaMoneyBillTrendUp,
-  FaPen,
-  FaSackDollar,
-  FaSliders,
-  FaTrash,
-  FaX,
-} from 'react-icons/fa6';
+import { FaPen, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
 import { Form, Formik, FormikHelpers } from 'formik';
 
 import { Button } from '../../../../components/buttons/button';
@@ -27,20 +19,81 @@ type DataType = {
   images: string;
 };
 
-type PanelType = {
-  structure: string;
-};
-
-interface Fields {
-  email: string;
-  password: string;
+export interface InputField {
+  field: string;
+  placeholder: string;
+  icon: React.ReactNode;
 }
+
+export interface FormInputs {
+  [key: string]: InputField;
+}
+
+export type PanelType = {
+  structure: {
+    panelTitle: string;
+    forms: FormInputs[];
+  };
+};
 
 export function PanelDashboard({ structure }: Readonly<PanelType>) {
   const { category } = useParams();
-  const panel = JSON.parse(structure);
-  console.log(panel);
   console.log(category);
+
+  const panel = structure;
+
+  const forms = panel.forms;
+  const formObject = forms.reduce((acc, inputs) => {
+    const inputsName = Object.keys(inputs);
+
+    inputsName.forEach((field) => {
+      acc[field] = '';
+    });
+
+    return acc;
+  }, {} as Record<string, string | number>);
+
+  type FormObject = typeof formObject;
+
+  function generateDynamicForm() {
+    return forms.map((inputs: FormInputs) => {
+      const inputsName = Object.keys(inputs);
+
+      return (
+        <div key={inputsName.toString()} className='flex gap-4'>
+          {inputsName.map((field) => {
+            const inputType = inputs[field].field;
+            const inputIcon = inputs[field].icon;
+
+            if (inputType !== 'image') {
+              return (
+                <Input key={field}>
+                  {inputIcon}
+                  <Input.Field
+                    id={field}
+                    name={field}
+                    type={inputType}
+                    placeholder={inputs[field].placeholder}
+                    autoComplete='off'
+                  />
+                </Input>
+              );
+            } else {
+              return (
+                <div key={field}>
+                  <span className='text-paragraph-50'>
+                    Criando o input de imagem ⚠️
+                  </span>
+                </div>
+              );
+            }
+          })}
+        </div>
+      );
+    });
+  }
+
+  generateDynamicForm();
 
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [currentSelectedItem, setCurrentSelectedItem] = useState<
@@ -167,13 +220,10 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
           </Modal.Header>
 
           <Formik
-            initialValues={{
-              email: '',
-              password: '',
-            }}
+            initialValues={formObject}
             onSubmit={(
-              fields: Fields,
-              { setSubmitting, resetForm }: FormikHelpers<Fields>
+              fields: FormObject,
+              { setSubmitting, resetForm }: FormikHelpers<FormObject>
             ) => {
               console.log(JSON.stringify(fields, null, 2));
 
@@ -185,37 +235,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
               <Form className='flex flex-col gap-6'>
                 <Modal.Body>
                   <div className='flex flex-col gap-4'>
-                    <Input>
-                      <FaAt />
-                      <Input.Field
-                        id='name'
-                        name='name'
-                        placeholder='Nome'
-                        autoComplete='off'
-                      />
-                    </Input>
-
-                    <div className='flex gap-4'>
-                      <Input>
-                        <FaSackDollar />
-                        <Input.Field
-                          id='price'
-                          name='price'
-                          placeholder='Preço'
-                          autoComplete='off'
-                        />
-                      </Input>
-
-                      <Input>
-                        <FaMoneyBillTrendUp />
-                        <Input.Field
-                          id='month'
-                          name='month'
-                          placeholder='Mensal'
-                          autoComplete='off'
-                        />
-                      </Input>
-                    </div>
+                    {generateDynamicForm()}
                   </div>
                 </Modal.Body>
 
