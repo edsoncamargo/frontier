@@ -77,7 +77,9 @@ type BodyProps = {
 };
 
 function Body({ children }: Readonly<BodyProps>) {
-  return <div className='p-4'>{children}</div>;
+  return (
+    <div className='px-4 my-4 overflow-auto max-h-[400px]'>{children}</div>
+  );
 }
 
 type FooterProps = {
@@ -86,7 +88,7 @@ type FooterProps = {
 
 function Footer({ children }: Readonly<FooterProps>) {
   return (
-    <div className='flex flex-wrap justify-end gap-4 p-4 mt-8 w-full bg-background-900'>
+    <div className='flex flex-wrap justify-end gap-4 p-4 mt-4 w-full bg-background-900'>
       {children}
     </div>
   );

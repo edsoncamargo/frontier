@@ -1,7 +1,9 @@
-import { FaPen, FaPlus, FaSliders, FaTrash, FaX } from 'react-icons/fa6';
+import { FaPlus, FaSliders, FaX } from 'react-icons/fa6';
 import { Form, Formik, FormikHelpers } from 'formik';
 
 import { Button } from '../../../../components/buttons/button';
+import { ButtonAction } from '../../../../components/buttons/button-action';
+import ImagePreview from '../../../../components/image-preview/image-preview';
 import Input from '../../../../components/forms/input/input';
 import Modal from '../../../../components/modal/modal';
 import { Navbar } from './navbar/navbar';
@@ -138,7 +140,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
     },
     {
       id: 1,
-      type: 'Bronze',
+      type: 'Prata',
       price: 100.0,
       monthly_price: 25.0,
       description:
@@ -152,7 +154,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
     },
     {
       id: 1,
-      type: 'Bronze',
+      type: 'Ouro',
       price: 100.0,
       monthly_price: 25.0,
       description:
@@ -191,6 +193,9 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
                 <Modal.Body>
                   <div className='flex flex-col gap-3'>
                     {generateDynamicForm()}
+                    <ImagePreview>
+                      <ImagePreview.Delete type='button' />
+                    </ImagePreview>
                   </div>
                 </Modal.Body>
 
@@ -250,7 +255,7 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
           <Modal.Body>
             <div className='w-full flex flex-col gap-6 justify-center items-center'>
               <em
-                className='rounded-full bg-red-900 border-2 border-red-500 p-4 
+                className='rounded-full bg-red-900 border-2 border-red-500 p-4 mt-4
                 relative before:absolute before:content-[""] before:bg-red-500/30 before:left-1/2 before:top-1/2
                 before:h-20 before:w-20 before:rounded-full before:-translate-x-1/2 before:-translate-y-1/2 before:-z-10'
               >
@@ -341,24 +346,20 @@ export function PanelDashboard({ structure }: Readonly<PanelType>) {
                     <Table.Cell>{JSON.stringify(item.images)}</Table.Cell>
                     <Table.Cell variant='freeze'>
                       <div className='flex gap-2 items-center justify-end'>
-                        <button
-                          className='rounded-full bg-slate-900 border-2 border-slate-500 hover:border-slate-400 p-2 transition-all'
+                        <ButtonAction
+                          variant='edit'
                           onClick={() => {
                             handleModalToggle(item);
                             setModalType('edit');
                           }}
-                        >
-                          <FaPen />
-                        </button>
-                        <button
-                          className='rounded-full bg-red-900 border-2 border-red-500 hover:border-red-400 p-2 transition-all'
+                        />
+                        <ButtonAction
+                          variant='delete'
                           onClick={() => {
                             handleModalToggle(item);
                             setModalType('delete');
                           }}
-                        >
-                          <FaTrash />
-                        </button>
+                        />
 
                         <em
                           className={`${
