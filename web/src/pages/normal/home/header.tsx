@@ -2,7 +2,7 @@ import { Button } from '../../../components/buttons/button';
 import { FaDiscord } from 'react-icons/fa';
 
 export function Header() {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <header
