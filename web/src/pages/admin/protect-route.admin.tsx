@@ -11,8 +11,11 @@ const ProtectRoute: React.FC<ProtectRouteProps> = ({
   ...rest
 }) => {
   const isAuthenticated = true;
+  const user = {
+    type: 'admin',
+  };
 
-  return isAuthenticated ? (
+  return isAuthenticated && user.type === 'admin' ? (
     <Component {...rest} />
   ) : (
     <Navigate to='/admin/login' />
