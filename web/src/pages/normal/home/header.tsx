@@ -14,7 +14,7 @@ export function Header() {
 
       <div className='flex gap-4 bg-red min-[521px]:items-center min-[768px]:mr-10 max-[768px]:mr-6 flex-wrap justify-end py-10 max-[520px]:flex-col'>
         {isLoggedIn ? (
-          <div className='flex items-center gap-3 rounded-full'>
+          <div className='flex items-center flex-wrap gap-3 rounded-full'>
             <span className='text-sm'>Arthur M.</span>
             <div className='h-10 w-10 rounded-full overflow-hidden bg-zinc-950 block'>
               <img src='/avatar.jpg' alt='' />
